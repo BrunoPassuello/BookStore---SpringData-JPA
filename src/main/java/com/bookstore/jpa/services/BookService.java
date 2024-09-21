@@ -9,6 +9,7 @@ import com.bookstore.jpa.models.ReviewModel;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,6 +23,10 @@ public class BookService {
         this.bookRepository = bookRepository;
         this.authorRepository = authorRepository;
         this.publisherRepository = publisherRepository;
+    }
+
+    public List<BookModel> getAllBooks() {
+        return bookRepository.findAll();
     }
 
     @Transactional
